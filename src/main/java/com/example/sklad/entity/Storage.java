@@ -4,10 +4,7 @@ import com.example.sklad.entity.base.BaseEntity;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -25,6 +22,6 @@ public class Storage extends BaseEntity {
     @Column(name="location")
     private String location;
 
-    @OneToMany(mappedBy = "storage")
+    @OneToMany(mappedBy = "storage", cascade = {CascadeType.ALL})
     List<StorageHasProduct> storageHasProductList;
 }

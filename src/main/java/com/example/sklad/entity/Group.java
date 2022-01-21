@@ -7,9 +7,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,7 +20,13 @@ import javax.persistence.Table;
 @Table(name = "groups")
 public class Group extends BaseEntity {
 
-    @Column(name="name")
+    @Column(name = "name", unique = true)
     private String name;
+
+    @Column(name = "description")
+    private String description;
+
+    @OneToMany(mappedBy = "group", cascade = {CascadeType.ALL})
+    private List<Product> productList = new ArrayList<>();
 
 }

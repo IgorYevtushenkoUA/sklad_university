@@ -7,10 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,11 +20,12 @@ import java.util.UUID;
 @Table(name = "products")
 public class Product extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
-    @Column(name="group_uuid")
-    private UUID productGroupUUID;
+    @ManyToOne
+    @JoinColumn(name="group_id")
+    private Group group;
 
     @Column(name = "description")
     private String description;
@@ -38,6 +36,8 @@ public class Product extends BaseEntity {
     @Column(name = "price")
     private double price;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL})
     List<StorageHasProduct> storageHasProductList;
+
+
 }

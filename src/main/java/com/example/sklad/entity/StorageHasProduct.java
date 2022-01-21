@@ -19,7 +19,7 @@ public class StorageHasProduct {
     @EmbeddedId
     StorageProductKey id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("productUUID")
     Product product;
 
