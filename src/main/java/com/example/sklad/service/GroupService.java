@@ -18,9 +18,7 @@ public class GroupService {
     final GroupRepository groupRepository;
 
     public void deleteGroup(UUID id) {
-        System.out.println("we are in service delete group");
         groupRepository.deleteById(id);
-        System.out.println("we are here");
     }
 
     public List<Group> findAll() {
