@@ -26,9 +26,9 @@ public class Group extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-//    @JsonIgnore
+    //    @JsonIgnore
     @JsonManagedReference
-    @OneToMany(mappedBy = "group", cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "group", cascade = {CascadeType.REMOVE})
     private List<Product> productList = new ArrayList<>();
 
 }

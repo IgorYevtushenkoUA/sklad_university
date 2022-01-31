@@ -21,12 +21,12 @@ import java.util.UUID;
 @AllArgsConstructor
 public class StorageProductKey implements Serializable {
 
-    @Column(name="product_uuid")
+    @Column(name = "product_uuid")
     @Type(type = "uuid-char")
     @NotNull
     private UUID productUUID;
 
-    @Column(name="storage_uuid")
+    @Column(name = "storage_uuid")
     @Type(type = "uuid-char")
     @NotNull
     private UUID storageUUID;
