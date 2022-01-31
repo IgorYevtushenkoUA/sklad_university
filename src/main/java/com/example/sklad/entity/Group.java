@@ -1,6 +1,8 @@
 package com.example.sklad.entity;
 
 import com.example.sklad.entity.base.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,6 +28,8 @@ public class Group extends BaseEntity {
     @Column(name = "description")
     private String description;
 
+//    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "group", cascade = {CascadeType.ALL})
     private List<Product> productList = new ArrayList<>();
 

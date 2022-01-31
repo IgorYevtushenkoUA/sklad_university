@@ -1,6 +1,7 @@
 package com.example.sklad.entity;
 
 import com.example.sklad.entity.base.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,6 +26,7 @@ public class Product extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="group_id")
+    @JsonBackReference
     private Group group;
 
     @Column(name = "description")
