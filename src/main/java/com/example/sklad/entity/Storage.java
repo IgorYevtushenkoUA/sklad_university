@@ -24,4 +24,7 @@ public class Storage extends BaseEntity {
 
     @OneToMany(mappedBy = "storage", cascade = {CascadeType.ALL})
     List<StorageHasProduct> storageHasProductList;
+
+    @OneToMany(mappedBy = "storage", cascade = {CascadeType.ALL})
+    List<BookedProduct> bookedProductList;
 }

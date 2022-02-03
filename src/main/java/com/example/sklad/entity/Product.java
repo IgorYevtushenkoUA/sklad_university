@@ -28,7 +28,7 @@ public class Product extends BaseEntity {
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name="group_id")
+    @JoinColumn(name = "group_id")
     @JsonBackReference
     private Group group;
 
@@ -44,5 +44,7 @@ public class Product extends BaseEntity {
     @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL})
     List<StorageHasProduct> storageHasProductList;
 
+    @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL})
+    List<BookedProduct> bookedProductList;
 
 }

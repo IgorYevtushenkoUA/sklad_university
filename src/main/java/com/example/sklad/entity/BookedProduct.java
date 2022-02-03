@@ -6,10 +6,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -22,14 +22,20 @@ import java.util.UUID;
 @Table(name = "booked_product")
 public class BookedProduct extends BaseEntity {
 
-    @Column(name = "client_uuid")
-    private UUID clientUUID;
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-    @Column(name = "product_uuid")
-    private UUID productUUID;
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "product_id")
+    private Product product;
 
-    @Column(name = "storage_uuid")
-    private UUID storageUUID;
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "storage_id")
+    private Storage storage;
 
     @Column(name = "number")
     private int number;
