@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-@Table(name = "groups")
+@Table(name = "_groups")
 @Builder
 public class Group extends BaseEntity {
 
@@ -26,9 +26,9 @@ public class Group extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    //    @JsonIgnore
-    @JsonManagedReference
-    @OneToMany(mappedBy = "group", cascade = {CascadeType.REMOVE})
+    @JsonIgnore
+//    @JsonManagedReference
+    @OneToMany( mappedBy = "group", cascade = {CascadeType.REMOVE})
     private List<Product> productList = new ArrayList<>();
 
 }

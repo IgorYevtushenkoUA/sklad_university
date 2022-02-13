@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-@Table(name = "clients")
+@Table(name = "_clients")
 public class Client extends BaseEntity {
 
     @Column(name = "password")

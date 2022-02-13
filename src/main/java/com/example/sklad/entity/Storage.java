@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-@Table(name="storages")
+@Table(name="_storages")
 public class Storage extends BaseEntity {
 
     @Column(name="name")

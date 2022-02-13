@@ -23,7 +23,7 @@ public class GroupController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") UUID id) {
         if (groupService.findById(id) == null) throw new NotFoundByIdException();
-        groupService.deleteGroup(id);
+        groupService.deleteById(id);
         return new ResponseEntity<>("Deleted successfully", HttpStatus.OK);
     }
 

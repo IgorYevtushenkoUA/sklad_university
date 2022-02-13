@@ -19,7 +19,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-@Table(name = "booked_product")
+@Table(name = "_booked_product")
 public class BookedProduct extends BaseEntity {
 
     @ManyToOne

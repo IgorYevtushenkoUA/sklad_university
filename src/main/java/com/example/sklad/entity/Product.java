@@ -20,7 +20,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-@Table(name = "products")
+@Table(name = "_products")
 public class Product extends BaseEntity {
 
     @Column(name = "name", unique = true)
@@ -28,8 +28,8 @@ public class Product extends BaseEntity {
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "group_id")
-    @JsonBackReference
+//    @JoinColumn(name = "group_id")
+//    @JsonBackReference
     private Group group;
 
     @Column(name = "description")

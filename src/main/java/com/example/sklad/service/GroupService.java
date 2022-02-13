@@ -3,11 +3,11 @@ package com.example.sklad.service;
 import com.example.sklad.entity.Group;
 import com.example.sklad.repository.GroupRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -17,8 +17,10 @@ public class GroupService {
 
     final GroupRepository groupRepository;
 
-    public void deleteGroup(UUID id) {
-        groupRepository.deleteById(id);
+    public void deleteById(UUID id) {
+        Group group = groupRepository.findById(id).orElse(null);
+        if (group != null)
+            groupRepository.delete(group);
     }
 
     public List<Group> findAll() {

@@ -15,7 +15,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@Table(name="storage_has_product")
+@Table(name="_storage_has_product")
 public class StorageHasProduct {
 
     @EmbeddedId

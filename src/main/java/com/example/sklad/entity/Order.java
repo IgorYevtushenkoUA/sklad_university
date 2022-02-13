@@ -19,7 +19,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-@Table(name="orders")
+@Table(name="_orders")
 public class Order extends BaseEntity {
 
     @Column(name = "client_uuid")
